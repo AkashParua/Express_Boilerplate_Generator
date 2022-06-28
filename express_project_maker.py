@@ -36,7 +36,7 @@ port = input("preferred port in localhost:")
 with open("index.js",'a') as file:
     boilerplate1 = "const express = require('express') \nconst path = require('path') \nconst app = express() \nconst ejs = require('ejs') \nconst mongoose = require('mongoose') \nconst bodyParser = require('body-parser') \n"
     file.write(boilerplate1)
-    boilerplate2 = "app.use(express.static('{}')) \napp.set('view engine','ejs') \napp.listen({},*REPLACE WITH CALLBACK FUNCT*) \n".format(static_folder_name,port)
+    boilerplate2 = "app.use(express.static('{}')) \napp.set('view engine','ejs') \napp.listen({},()=>{{console.log( )}}) \n".format(static_folder_name,port)
     file.write(boilerplate2)
     boilerplate3 = "app.use(bodyParser.json()) \napp.use(bodyParser.urlencoded({ extended: false }))"
     file.write(boilerplate3)
