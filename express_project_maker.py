@@ -40,7 +40,7 @@ with open("index.js",'a') as file:
     file.write(boilerplate1)
     boilerplate2 = "app.use(express.static('{}')) \napp.set('view engine','ejs') \napp.listen({},()=>{{console.log( )}}) \n".format(static_folder_name,port)
     file.write(boilerplate2)
-    boilerplate3 = "app.use(bodyParser.json()) \napp.use(bodyParser.urlencoded({ extended: false }))"
+    boilerplate3 = "app.use(bodyParser.json()) \napp.use(bodyParser.urlencoded({ extended: false })) \n"
     file.write(boilerplate3)
 print("Include your .ejs files in views\nYour Schema Models in {}\nYour static files in {}\n ".format(schema_models_folder_name,static_folder_name))    
 choice = input("Include Schema Model(s)? Y/n:")
