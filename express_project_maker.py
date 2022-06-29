@@ -1,5 +1,7 @@
+import importlib
 from ntpath import join
 import os
+from schema_gen import schema_creator
 name = input("Enter project Name:")
 parent_dir = os.getcwd()
 path = os.path.join(parent_dir, name)
@@ -40,9 +42,13 @@ with open("index.js",'a') as file:
     file.write(boilerplate2)
     boilerplate3 = "app.use(bodyParser.json()) \napp.use(bodyParser.urlencoded({ extended: false }))"
     file.write(boilerplate3)
-
-
-
 print("Include your .ejs files in views\nYour Schema Models in {}\nYour static files in {}\n ".format(schema_models_folder_name,static_folder_name))    
+choice = input("Include Schema Model(s)? Y/n:")
+if choice == 'Y':
+    n =int(input("No of Schema ? "))
+    for i in range(n):
+        schema_creator(path_models,schema_models_folder_name,path)
+
+
 
 
